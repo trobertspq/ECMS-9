@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<ivy-module version="2.0" xmlns:m="http://ant.apache.org/ivy/maven">
+	<info 
+		organisation="com.proquest"
+		module="ecms-9"
+		status="integration">
+	</info>	
+
+	<configurations>
+		<conf name="default" description="Both runtime dependencies and master artifact form this conf." extends="runtime,master"/>
+		<conf name="master" description="Contains only the artifact published by this module itself, with no transitive dependencies."/>
+		<conf name="build" description="Contains dependencies only required for compile/build time."/>
+		<conf name="runtime" description="Contains dependencies that are not neccessarily required for building, but are for execution."/>
+		<conf name="test" description="Dependencies not required for normal use of the application, and are only available for test compilation and execution." extends="runtime"/>
+		<conf name="optional" description="Contains all optional dependencies. (for server side use)"/>
+	</configurations>
+    
+	<publications>
+		<artifact name="ecms-9" type="jar" conf="build,master" ext="jar" />
+		<artifact name="ecms-9-nodep" type="nodep" conf="master" ext="jar" />
+		<artifact name="ecms-9-source" type="source" conf="build,master" ext="jar" />
+		<artifact name="ecms-9-javadoc" type="javadoc" conf="build,master" ext="jar" />
+	</publications>
+	
+	<dependencies>
+		<dependency org="junit" name="junit" rev="4.4" conf="test->default(*)"/>
+		<dependency org="com.proquest" name="ecms-commons" rev="1.0.+" />
+	</dependencies>
+</ivy-module>

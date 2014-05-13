@@ -1,0 +1,5 @@
+<project xmlns:ivy="antlib:org.apache.ivy.ant">
+
+	<property name="service.name"		value="ecms-9" />
+	<property name="publish.resolver"       value="editorial-publish" />
+</project>
